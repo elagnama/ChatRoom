@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Bonjour tout le monde</h1>
+    <h2>J'espère que vous allez bien</h2>
+    <h3>Il est {{ date|date:"H\hi" }}</h3>
+    {% if user.is_authenticated %}
+        <h3>Bonjour {{ firstname }}, Bienvenue sur ton Chat !</h3>
+        <button type="submit" class="btn"><a href="/chat/">Chat</a></button>
+        <button type="submit" class="btn"><a href="/logout/">Log out</a></button>
+    {% else %}
+        <button type="submit"><a href="/register/">Sign in</a></button>
+        <button type="submit"><a href="/login/">Log in</a></button>
+    {% endif %}
+
+</div>
+</body>
+</html>
